@@ -1,0 +1,10 @@
+{% if all_question_list %}
+    <ul>
+    {% for question in all_question_list %}
+		<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+ <a href="{% url 'polls:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Create a poll!</a>
